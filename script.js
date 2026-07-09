@@ -1,3 +1,14 @@
+// CONFIGURATION & VARIABLES GLOBALES
+// ============================================
+
+let scene, camera, renderer, controls;
+let terrainMesh, cloudMesh;
+let isAnimating = true;
+let time = 0;
+let terrainScale = 50;
+let animationSpeed = 1;
+let seed = Math.random() * 10000;
+=======
 /**
  * Animation 3D avec Three.js
  * Génération procédurale de terrain + Texture Ouattée (Worley Noise)
@@ -10,6 +21,22 @@
  */
 
 // ============================================
+// CONFIGURATION & VARIABLES GLOBALES
+// ============================================
+
+// Vérifier que THREE et OrbitControls sont bien chargés
+if (typeof THREE === 'undefined' || typeof OrbitControls === 'undefined') {
+    console.error('Three.js ou OrbitControls non chargé. Vérifiez les imports.');
+    throw new Error('Three.js ou OrbitControls non disponible. Utilisez un navigateur moderne.');
+}
+
+let scene, camera, renderer, controls;
+let terrainMesh, cloudMesh;
+let isAnimating = true;
+let time = 0;
+let terrainScale = 50;
+let animationSpeed = 1;
+let seed = Math.random() * 10000;============================================
 // CONFIGURATION & VARIABLES GLOBALES
 // ============================================
 

@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animation 3D - Génération Procédurale & Texture Ouattée</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Import Three.js from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <!-- Import OrbitControls for camera interaction -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Import Three.js from CDN (ES Modules) -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <!-- Import Three.js and OrbitControls as ES Modules -->
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        window.THREE = THREE;
+        window.OrbitControls = OrbitControls;
+    </script>
 </head>
 <body>
     <div class="container">
@@ -49,7 +61,7 @@
         </div>
     </div>
     
-    <!-- Main Three.js script -->
-    <script src="script.js"></script>
+    <!-- Main Three.js script (must be module to access THREE and OrbitControls) -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>
